@@ -1,0 +1,344 @@
+@charset "utf-8";
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Force scrollbar */
+html { overflow-y: scroll; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/*for all*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a { 
+  display: inline-block;
+  text-decoration: none; 
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+span { display: inline-block; }
+input[type] { outline: none; }
+
+::placeholder {
+  text-transform: capitalize;
+  color: #777;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1366px;
+  width: 86%; 
+  margin: 0 auto;
+}
+
+/*=================================
+  main styling starts here
+=================================*/
+
+body { background-color: lightcoral; }
+
+.todo__wrapper {
+  width: 100%;
+  padding: 50px 3%;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.todo__wrapper > * {
+  width: 35%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.todo__heading {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.todo__form {
+  display: flex;
+}
+
+.todo__form--group { width: 80%; }
+.todo__form--control { width: 20%; }
+
+.todo__form input {
+  width: 100%;
+  padding: 12px 10px;
+  border: none;
+  font-size: 15px;
+}
+
+.todo__form--control > * {
+  background-color: #222;
+  color: #ddd;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color .3s;
+}
+
+.add-btn {
+  opacity: .8;
+  pointer-events: none;
+}
+
+.add-btn.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.update-btn { display: none; }
+.update-btn.active { display: block; }
+.hide { display: none; }
+
+.todo__form--group > * {
+  background-color: #f7f7f7;
+  color: #111;
+  letter-spacing: 1px;
+}
+
+.todo__form--control > *:hover { background-color: #000; }
+
+.todo__lists {
+  max-height: 350px;
+  display: flex;
+  overflow-y: auto;
+  background-color: #111;
+  flex-direction: column;
+  gap: 3px;
+  scrollbar-width: thin;
+}
+
+.todo__lists::-webkit-scrollbar { width: 6px; }
+
+.todo__lists::-webkit-scrollbar-thumb {
+  border-radius: 0 5px 5px 0;
+  background-color: #555;
+}
+
+.todo__lists--item {
+  padding: 10px;
+  display: flex;
+  background-color: #3c3e3f;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.todo__lists--item > * {
+  display: flex;
+  gap: 10px;
+}
+ 
+.todo__lists--count {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.todo__lists--text {
+  color: #fff;
+  word-break: break-all;
+}
+
+.todo__lists--delete,
+.todo__lists--edit {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background-color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 18px;
+  text-indent: -99999px;
+  border-radius: 5px;
+  transition: background-color .3s;
+}
+
+.todo__lists--delete { color: #df1c1c; }
+.todo__lists--edit { color: #039703; }
+
+.todo__lists--delete:hover {
+  background-color: #df1c1c;
+  color: #fff;
+}
+
+.todo__lists--edit:hover {
+  background-color: #039703;
+  color: #fff;
+}
+
+.todo__lists--delete::before,
+.todo__lists--edit::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: "fontAwesome";
+  text-indent: 0;
+  transform: translate(-50%,-50%);
+  transition: color .3s;
+}
+
+.todo__lists--delete::before { content: "\f014"; }
+.todo__lists--edit::before { content: "\f040"; }
+
+.todo__active {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  color: #fff;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+
+.todo__active--count {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.todo__delete--all {
+  padding: 5px 8px;
+  border-radius: 5px;
+  background-color: #df1c1c;
+  cursor: pointer;
+  font-weight: 600;
+  opacity: .7;
+  pointer-events: none;
+  transition: background-color .3s;
+}
+
+.todo__delete--all.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.todo__delete--all:hover { background-color: #ff0000; }
+
+/*=================================
+  main styling ends here
+=================================*/
+
+/* ============================= */
+
+/*=================================
+  media query starts
+=================================*/
+
+/*media query for 1024px starts here*/
+@media only screen and (max-width: 1024px) {
+  .todo__wrapper > * { width: 50%; }
+}
+
+/*media query for 767px starts here*/
+@media only screen and (max-width: 767px) {
+  .todo__wrapper > * { width: 75%; }
+}
+
+/*media query for 540px starts here*/
+@media only screen and (max-width: 540px) {
+  .todo__wrapper > * { width: 90%; }
+}
+
+/*media query for 480px starts here*/
+@media only screen and (max-width: 480px) {
+  .todo__wrapper > * { width: 100%; }
+}

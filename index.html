@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"> 
+<head>
+  <meta charset="utf-8">
+  <title>ES6 Todo List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <!--font-awesome link for icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
+  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
+</head>
+<body>
+  <!--container start-->
+  <div class="container">
+    <!--main section start-->
+    <main>
+      <section class="todo">
+        <div class="wrapper todo__wrapper">
+          <h1 class="todo__heading">create todo</h1>
+          <form action="#FIXME" method="get" name="todoForm" class="todo__form">
+            <div class="todo__form--group">
+              <input type="text" name="todoInput" placeholder="todo..." autocomplete="off">
+            </div>
+            <div class="todo__form--control">
+              <input type="button" class="add-btn" value="add">
+              <input type="button" class="update-btn" value="update">
+            </div>
+          </form>
+          <ul class="todo__lists"></ul>
+          <div class="todo__active">
+            <span class="todo__active--text">pending todo's : <span class="todo__active--count">0</span></span>
+            <span class="todo__delete--all">delete all</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--main section end-->
+  </div>
+  <!--container end-->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
